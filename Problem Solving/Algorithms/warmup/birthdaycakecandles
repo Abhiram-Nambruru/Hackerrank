@@ -11,7 +11,7 @@ def birthdayCakeCandles(ar):
     max1=max(ar)
     c=0
     for i in ar:
-        if (i==max1):
+        if i==max1:
             c=c+1
     return c
 
