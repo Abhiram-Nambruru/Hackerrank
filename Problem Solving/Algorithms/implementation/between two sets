@@ -15,16 +15,16 @@ import functools
 #  2. INTEGER_ARRAY b
 #
 def gcd(a, b):
-    while a % b != 0:
-        a, b = b, (a % b)
-    return b
+    return math.gcd(a,b)
 def lcm(a, b):
     return a * b // gcd(a, b)
 def getTotalX(a, b):
- 
+    count=0
     min_gcd = functools.reduce(gcd, b)
     max_lcm = functools.reduce(lcm, a)
-    count = sum([1 for x in range(max_lcm, min_gcd+1, max_lcm) if min_gcd % x == 0])
+    for x in range(max_lcm, min_gcd+1,max_lcm):
+          if min_gcd % x == 0 :
+              count= count+1
  
     return count
 
