@@ -1,0 +1,41 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the birthday function below.
+def birthday(s, d, m):
+    len_s = len(s)
+    count=0
+    sum1=0
+    j=0
+    for i in range(0,len_s+1-m):
+        sum1=sum(s[i:i+m])
+        if d==sum1:
+            count=count+1
+        else:
+             sum1=0
+    return count
+        
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    s = list(map(int, input().rstrip().split()))
+
+    dm = input().rstrip().split()
+
+    d = int(dm[0])
+
+    m = int(dm[1])
+
+    result = birthday(s, d, m)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
